@@ -40,11 +40,11 @@ def load_data():
     """โหลดข้อมูลพยากรณ์และพิกัด"""
     try:
         # โหลดข้อมูลพยากรณ์
-        forecast_df = pd.read_csv('src/forecast_2025_2026.csv')
+        forecast_df = pd.read_csv('forecast_2025_2026.csv')
         forecast_df['adate'] = pd.to_datetime(forecast_df['adate'])
         
         # โหลดข้อมูลพิกัด
-        coord_df = pd.read_csv('src/coordinate/tambon.csv')
+        coord_df = pd.read_csv('coordinate/tambon.csv')
         
         # สร้าง mapping สำหรับอำเภอ
         coord_df['AM_ID_CLEAN'] = coord_df['AM_ID'].astype(str).str.zfill(4)
