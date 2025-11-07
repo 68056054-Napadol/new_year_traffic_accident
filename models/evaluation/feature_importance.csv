@@ -1,0 +1,16 @@
+feature,importance
+rolling_mean_7d,0.5718938
+rolling_mean_14d,0.19303657
+group_mean,0.045652226
+month,0.029519448
+is_december,0.026564077
+day_of_month,0.025700185
+year,0.018975336
+group_std,0.015603016
+is_weekend,0.014975508
+rcode,0.013555737
+day_of_week,0.012876982
+aampur_clean,0.012609341
+aplace_clean,0.011659079
+lag_1year,0.0073786103
+lag_2year,0.0

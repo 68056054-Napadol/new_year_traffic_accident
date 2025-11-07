@@ -1,0 +1,24 @@
+{
+  "feature_columns": [
+    "month",
+    "day_of_month",
+    "day_of_week",
+    "is_weekend",
+    "is_december",
+    "year",
+    "rcode",
+    "aampur_clean",
+    "aplace_clean",
+    "group_mean",
+    "group_std",
+    "lag_1year",
+    "lag_2year",
+    "rolling_mean_7d",
+    "rolling_mean_14d"
+  ],
+  "model_type": "XGBRegressor",
+  "training_date": "2025-11-07 04:14:52",
+  "device": "gpu",
+  "training_samples": 138438,
+  "xgboost_version": "3.1.1"
+}
