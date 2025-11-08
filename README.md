@@ -73,10 +73,10 @@ docker-compose ps
 docker-compose logs -f
 ```
 
-### 4. หยุดการทำงาน
+### 4. เปิดหน้าเว็บ
 ```bash
-# หยุด container
-docker-compose down
+# เปิด browser และใช้ url นี้
+http://localhost:8501/
 ```
 
 ---
