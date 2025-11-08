@@ -397,7 +397,7 @@ if forecast_df is not None and amphoe_coord is not None:
         plugins.Fullscreen().add_to(m)
         
         # แสดงแผนที่
-        st_folium(m, width=None, height=600, key="main_map")
+        st_folium(m, width=None, height=600, key="main_map", returned_objects=[])
     
     # Tab 2: การวิเคราะห์
     with tab2:
