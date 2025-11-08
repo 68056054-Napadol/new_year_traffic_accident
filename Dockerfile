@@ -1,33 +1,26 @@
-# ใช้ Python 3.10 slim image
-FROM python:3.10-slim
+# ใช้ Python 3.11 slim image
+FROM python:3.11-slim
 
 # ตั้งค่า working directory
 WORKDIR /app
 
-# ติดตั้ง system dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
-    software-properties-common \
-    && rm -rf /var/lib/apt/lists/*
+# ตั้งค่า environment variables
+ENV PYTHONUNBUFFERED=1
+ENV STREAMLIT_SERVER_PORT=8501
+ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
 
-# คัดลอก requirements
+# คัดลอกไฟล์ requirements
 COPY requirements.txt .
 
-# ติดตั้ง Python packages
-RUN pip install --no-cache-dir -r requirements.txt
+# ติดตั้ง Python packages โดยไม่ต้องติดตั้ง build tools
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# คัดลอกโค้ดทั้งหมด
+# คัดลอกไฟล์แอปพลิเคชัน
 COPY . .
 
-# สร้างโฟลเดอร์ที่จำเป็น
-RUN mkdir -p data/sample data/processed models logs
-
-# Expose port
+# เปิด port 8501
 EXPOSE 8501
 
-# Health check
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
-
-# รันแอพ
-ENTRYPOINT ["streamlit", "run", "src/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# คำสั่งรัน Streamlit
+CMD ["streamlit", "run", "src/web_local.py", "--server.port=8501", "--server.address=0.0.0.0"]
