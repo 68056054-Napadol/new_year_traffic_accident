@@ -1,14 +1,14 @@
 # คู่มือการติดตั้งและใช้งาน
 
-## ขั้นตอนการรัน Local
+## 1. ขั้นตอนการรัน Local แบบใช้ Streamlit
 
-### 1. สร้าง Virtual Environment
+### 1.1 สร้าง Virtual Environment
 ```bash
 # สร้าง virtual environment (ต้องใช้ Python version 3.11 เท่านั้น)
 py -3.11 -m venv venv3112
 ```
 
-### 2. เปิดใช้งาน Virtual Environment
+### 1.2 เปิดใช้งาน Virtual Environment
 ```bash
 # Windows
 venv3112\Scripts\activate
@@ -17,13 +17,13 @@ venv3112\Scripts\activate
 source venv3112/bin/activate
 ```
 
-### 3. ติดตั้ง Dependencies
+### 1.3 ติดตั้ง Dependencies
 ```bash
 # ติดตั้ง library ที่จำเป็น
 pip install -r requirement.txt
 ```
 
-### 4. รัน Web Application
+### 1.4 รัน Web Application
 ```bash
 # เข้าไปที่โฟลเดอร์ src
 cd src
@@ -34,46 +34,45 @@ streamlit run web_local.py
 
 ---
 
-## ขั้นตอนการสร้าง Docker Image
+## 2. ขั้นตอนการรัน Local แบบใช้ Docker
+### 2.1 ขั้นตอนการสร้าง Docker Image
 
-### 1. เตรียมความพร้อม
+### 2.1.1 เตรียมความพร้อม
 - เปิด **Docker Desktop** ให้ทำงานอยู่
 
-### 2. Build Docker Image
+### 2.1.2 Build Docker Image
 ```bash
 # Build image (ใช้เวลาประมาณ 2-5 นาทีในครั้งแรก)
 docker-compose build
 ```
 
-### 3. ตรวจสอบ Image
+### 2.1.3 ตรวจสอบ Image
 ```bash
 # ตรวจสอบว่า image ถูกสร้างเรียบร้อยแล้ว
 docker images
 ```
 
 ---
-
-## ขั้นตอนการใช้งาน Web ผ่าน Docker
-
-### 1. รัน Container
+### 2.2 ขั้นตอนการใช้งาน Web ผ่าน Docker
+### 2.2.1 รัน Container
 ```bash
 # รัน container ในโหมด detached
 docker-compose up -d
 ```
 
-### 2. ตรวจสอบสถานะ
+### 2.2.2 ตรวจสอบสถานะ
 ```bash
 # ดูสถานะของ container
 docker-compose ps
 ```
 
-### 3. ดู Logs
+### 2.2.3 ดู Logs
 ```bash
 # ดู logs แบบ real-time
 docker-compose logs -f
 ```
 
-### 4. เปิดหน้าเว็บ
+### 2.2.4 เปิดหน้าเว็บ
 ```bash
 # เปิด browser และใช้ url นี้
 http://localhost:8501/
